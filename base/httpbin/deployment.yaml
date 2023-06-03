@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin-deployment
+spec:
+  replicas: 0
+  template:
+    spec:
+      containers:
+      - name: httpbin-app
+        image: kennethreitz/httpbin
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
